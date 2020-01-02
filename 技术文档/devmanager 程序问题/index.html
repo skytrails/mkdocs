@@ -7,16 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="shortcut icon" href="/img/favicon.ico">
-  <title>My Docs</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Devmanager 程序问题 - My Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
-  <script src="/js/jquery-2.1.1.min.js" defer></script>
-  <script src="/js/modernizr-2.8.3.min.js" defer></script>
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Devmanager \u7a0b\u5e8f\u95ee\u9898";
+    var mkdocs_page_input_path = "\u6280\u672f\u6587\u6863/devmanager \u7a0b\u5e8f\u95ee\u9898.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -29,9 +36,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="/." class="icon icon-home"> My Docs</a>
+        <a href="../.." class="icon icon-home"> My Docs</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="//search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -43,17 +50,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="/.">Home</a>
+    <a class="" href="../..">Home</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/about/">About</a>
+    <a class="" href="../../about/">About</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/workspace/极光缩写/">工作文档</a>
+    <a class="" href="../../workspace/极光缩写/">工作文档</a>
 	    </li>
           
         </ul>
@@ -66,7 +73,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="/.">My Docs</a>
+        <a href="../..">My Docs</a>
       </nav>
 
       
@@ -74,9 +81,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="/.">Docs</a> &raquo;</li>
+    <li><a href="../..">Docs</a> &raquo;</li>
     
+      
     
+    <li>Devmanager 程序问题</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -86,12 +95,24 @@
           <div role="main">
             <div class="section">
               
-
-  <h1 id="404-page-not-found">404</h1>
-
-  <p><strong>Page not found</strong></p>
-
-
+                <h3 id="devmanager">devmanager 程序问题</h3>
+<ul>
+<li>
+<p>bug(2432)刻录过程中使用eject 能正常挪碟</p>
+</li>
+<li>
+<p>bug(2330) 光驱界面显示与数据库不符合（moveslot 后数据库没有同步数据）                                                                                                                         x</p>
+</li>
+<li>
+<p>bug(2219) odd_use 光驱监控存在oddid为空的记录（数据同步问题）</p>
+</li>
+<li>bug(2424)光盘已挂载的情况下重启optdrv&amp;devmanager 后存在odd表数据丢失，并且不能正常读取文件（重启有默认光驱初始化操作）</li>
+<li>bug(2086)指取碟过程中断电重启，所有slot丢失                                        x</li>
+<li>bug(2050)刻录过程中断电，odd表数据丢失(实际光驱中有碟片)  </li>
+<li>bug(1997) 数据库设碟与实际不一致，存在slot地址为空的记录                x</li>
+<li>bug(2048)inventory过程中由于系统故障导致iventory失败，光驱里存在多张碟片的情况。</li>
+</ul>
+              
             </div>
           </div>
           <footer>
@@ -121,9 +142,9 @@
       
     </span>
 </div>
-    <script>var base_url = '/';</script>
-    <script src="/js/theme.js" defer></script>
-      <script src="/search/main.js" defer></script>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>

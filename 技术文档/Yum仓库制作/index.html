@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>yum仓库制作 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "yum\u4ed3\u5e93\u5236\u4f5c";
+    var mkdocs_page_input_path = "\u6280\u672f\u6587\u6863/Yum\u4ed3\u5e93\u5236\u4f5c.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../workspace/极光缩写/">工作文档</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>yum仓库制作</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="yum">yum仓库制作</h1>
+<div class="toc">
+<ul>
+<li><a href="#yum">yum仓库制作</a><ul>
+<li><a href="#yum_1">Yum本地仓库制作</a><ul>
+<li><a href="#centos75">CentOS7.5</a></li>
+</ul>
+</li>
+<li><a href="#httpyum">http方式共享yum源</a><ul>
+<li><a href="#_1">服务端配置</a></li>
+<li><a href="#_2">客户端配置</a></li>
+<li><a href="#centos66">CentOS6.6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="yum_1">Yum本地仓库制作</h2>
+<p>[skytrails@163.com]</p>
+<h3 id="centos75">CentOS7.5</h3>
+<hr />
+<ul>
+<li>装载ISO系统盘到/mnt/DVDISO 或 使用vbox的共享路径功能</li>
+<li>在mnt目录上执行createrepo命令</li>
+<li>备份删除/etc/yum.repo.d全部文件</li>
+<li>新建以下内容文件(CentOS-DVD.repo)</li>
+</ul>
+<pre><code class="bash">  [DVDISO]
+  name=DVD ISO
+  baseurl=file:///mnt/   # 大爷的，这里有三个‘/’,踩过坑
+  enabled=1
+  gpgcheck=0
+</code></pre>
+
+<ul>
+<li>执行yum clean all</li>
+<li>执行yum list验证</li>
+</ul>
+<h2 id="httpyum">http方式共享yum源</h2>
+<h3 id="_1">服务端配置</h3>
+<blockquote>
+<ul>
+<li>安装httpd服务</li>
+</ul>
+<p><code>bash
+  $ yum install -y httpd</code></p>
+<ul>
+<li>关联路径</li>
+</ul>
+<p><code>bash
+  $ ln -s /mnt/DVDISO /var/www/html/repos</code></p>
+<ul>
+<li>配置httpd</li>
+</ul>
+<p><code>shell
+  $ cat /etc/httpd/conf.d/repos.d
+   &lt;Directory /var/www/http/repos&gt;
+         Options +Indexes
+      Require all granted
+   &lt;/Directory&gt;
+   Alias /repos /var/www/html/repos</code></p>
+<ul>
+<li>路径访问权限</li>
+</ul>
+<p><code>bash
+  # 为了httpd有权限访问/mnt/DVDISO
+  $ usermod -G vboxsf apache</code></p>
+<ul>
+<li>重启httpd服务</li>
+</ul>
+<p><code>bash
+  $ systemctl restart httpd</code></p>
+</blockquote>
+<h3 id="_2">客户端配置</h3>
+<blockquote>
+<ul>
+<li>备份repo文件</li>
+</ul>
+<p><code>bash
+$ cd /etc/yum.d/ 
+$ mkdir bak
+$ mv C* bak/</code></p>
+<ul>
+<li>
+<p>配置repo文件</p>
+</li>
+<li>
+<p><code>bash
+  $ vi /etc/yum.d/httpd.repo
+  [share]
+  name=httpd.repo
+  baseurl=http://ip/repos
+  gpgcheck=0</code></p>
+</li>
+<li>测试</li>
+</ul>
+<p><code>bash
+$ yum list</code>
+</p>
+</blockquote>
+<h3 id="centos66">CentOS6.6</h3>
+<ul>
+<li>挂载CentOS6.6_Final</li>
+</ul>
+<p><code>mount /dev/sr0 /mnt</code></p>
+<ul>
+<li>配置文件</li>
+</ul>
+<p><code>bash
+    [DVDISO]
+    name=DVD ISO
+    baseurl=file:///mnt/   # 大爷的，这里有三个‘/’,踩过坑
+    enabled=1
+    gpgcheck=0</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

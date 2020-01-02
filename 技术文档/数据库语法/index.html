@@ -7,16 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="shortcut icon" href="/img/favicon.ico">
-  <title>My Docs</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>数据库语法 - My Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
-  <script src="/js/jquery-2.1.1.min.js" defer></script>
-  <script src="/js/modernizr-2.8.3.min.js" defer></script>
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u6570\u636e\u5e93\u8bed\u6cd5";
+    var mkdocs_page_input_path = "\u6280\u672f\u6587\u6863/\u6570\u636e\u5e93\u8bed\u6cd5.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -29,9 +36,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="/." class="icon icon-home"> My Docs</a>
+        <a href="../.." class="icon icon-home"> My Docs</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="//search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -43,17 +50,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="/.">Home</a>
+    <a class="" href="../..">Home</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/about/">About</a>
+    <a class="" href="../../about/">About</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/workspace/极光缩写/">工作文档</a>
+    <a class="" href="../../workspace/极光缩写/">工作文档</a>
 	    </li>
           
         </ul>
@@ -66,7 +73,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="/.">My Docs</a>
+        <a href="../..">My Docs</a>
       </nav>
 
       
@@ -74,9 +81,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="/.">Docs</a> &raquo;</li>
+    <li><a href="../..">Docs</a> &raquo;</li>
     
+      
     
+    <li>数据库语法</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -86,12 +95,30 @@
           <div role="main">
             <div class="section">
               
+                <h1 id="_1">数据库语法</h1>
+<h2 id="_2">导出数据库表数据</h2>
+<pre><code class="bash">pg_dump -U postgres -t tbl_name database &gt; file.sql
+$ pg_dump -U postgres -t tbl_pool amefs_db &gt; dump.sql
+</code></pre>
 
-  <h1 id="404-page-not-found">404</h1>
+<h2 id="_3">导入数据库表数据</h2>
+<pre><code class="bash">psql -d &lt;database&gt; -U &lt;user&gt; -f &lt;sqlfile&gt;
+$ pg_dump -d database -U postgres -f tbl_pool.sql
+</code></pre>
 
-  <p><strong>Page not found</strong></p>
+<h2 id="_4">增加表字段</h2>
+<pre><code class="mysql">ALTER TABLE TAB_NAME ADD COLUMN STATUS text NOT NULL DEFAULT '';
+</code></pre>
 
+<h2 id="_5">删除表字段</h2>
+<pre><code>ALTER TABLE TAB_NAME DROP COLUMN name 
+</code></pre>
 
+<h2 id="_6">导出数据库表结构</h2>
+<pre><code class="bash">pg_dump -U postgres -t tbl_name database -s -f tbl_name.sql
+$ pg_dump -U postgres -t tbl_swapdisc amefs_db -s -f 1.s
+</code></pre>
+              
             </div>
           </div>
           <footer>
@@ -121,9 +148,9 @@
       
     </span>
 </div>
-    <script>var base_url = '/';</script>
-    <script src="/js/theme.js" defer></script>
-      <script src="/search/main.js" defer></script>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>

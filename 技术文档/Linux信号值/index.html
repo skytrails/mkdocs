@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Linux信号值 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Linux\u4fe1\u53f7\u503c";
+    var mkdocs_page_input_path = "\u6280\u672f\u6587\u6863/Linux\u4fe1\u53f7\u503c.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../workspace/极光缩写/">工作文档</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Linux信号值</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="linux">LINUX信号 值</h1>
+<h3 id="posix1">POSIX.1列出信号值</h3>
+<blockquote>
+<p><strong>SIGHUP</strong> <strong>1</strong> A 终端挂起或者控制进程终止 
+<strong>SIGINT</strong> <strong>2</strong> A 键盘中断（如break键被按下） 
+<strong>SIGQUIT</strong> <strong>3</strong> C 键盘的退出键被按下 
+<strong>SIGILL</strong> <strong>4</strong> C 非法指令 
+<strong>SIGABRT</strong> <strong>6</strong> C 由abort(3)发出的退出指令 
+<strong>SIGFPE</strong> <strong>8</strong> C 浮点异常 
+<strong>SIGKILL</strong> <strong>9</strong> AEF Kill信号 
+<strong>SIGSEGV</strong> <strong>11</strong> C 无效的内存引用 
+<strong>SIGPIPE</strong> <strong>13</strong> A 管道破裂: 写一个没有读端口的管道 
+<strong>SIGALRM</strong> <strong>14</strong> A 由alarm(2)发出的信号 
+<strong>SIGTERM</strong> <strong>15</strong> A 终止信号 
+<strong>SIGUSR1</strong> <strong>30</strong>,10,16 A 用户自定义信号1 
+<strong>SIGUSR2</strong> <strong>31</strong>,12,17 A 用户自定义信号2 
+<strong>SIGCHLD</strong> <strong>20</strong>,17,18 B 子进程结束信号 
+<strong>SIGCONT</strong> <strong>19</strong>,18,25 进程继续（曾被停止的进程） 
+<strong>SIGSTOP</strong> <strong>17</strong>,19,23 DEF 终止进程 
+<strong>SIGTSTP</strong> <strong>18</strong>,20,24 D 控制终端（tty）上按下停止键 
+<strong>SIGTTIN</strong> <strong>21</strong>,21,26 D 后台进程企图从控制终端读 
+<strong>SIGTTOU</strong> <strong>22</strong>,22,27 D 后台进程企图从控制终端写 </p>
+</blockquote>
+<h3 id="susv2">SUSv2列出信号值</h3>
+<blockquote>
+<p><strong>SIGBUS</strong> 10,7,10 C 总线错误(错误的内存访问) 
+<strong>SIGPOLL</strong> A Sys V定义的Pollable事件，与SIGIO同义 
+<strong>SIGPROF</strong> 27,27,29 A Profiling定时器到 
+<strong>SIGSYS</strong> 12,-,12 C 无效的系统调用 (SVID) 
+<strong>SIGTRAP</strong> 5 C 跟踪/断点捕获 
+<strong>SIGURG</strong> 16,23,21 B Socket出现紧急条件(4.2 BSD) 
+<strong>SIGVTALRM</strong> 26,26,28 A 实际时间报警时钟信号(4.2 BSD) 
+<strong>SIGXCPU</strong> 24,24,30 C 超出设定的CPU时间限制(4.2 BSD) 
+<strong>SIGXFSZ</strong> 25,25,31 C 超出设定的文件大小限制(4.2 BSD) </p>
+</blockquote>
+<ul>
+<li><strong>PS</strong>（对于SIGSYS，SIGXCPU，SIGXFSZ，以及某些机器体系结构下的SIGBUS，Linux缺省的动作是A (terminate)，SUSv2 是C (terminate and dump core)）。 </li>
+</ul>
+<h3 id="_1">其他信号值</h3>
+<blockquote>
+<p><strong>SIGIOT</strong> <strong>6</strong> <strong>C</strong> IO捕获指令，与SIGABRT同义 
+<strong>SIGEMT</strong> <strong>7</strong>,-,7 
+<strong>SIGSTKFLT</strong> -,<strong>16</strong>,- <strong>A</strong> 协处理器堆栈错误 
+<strong>SIGIO</strong> <strong>23</strong>,29,22 <strong>A</strong> 某I/O操作现在可以进行了(4.2 BSD) 
+<strong>SIGCLD</strong> -,-,<strong>18</strong> <strong>A</strong> 与SIGCHLD同义 
+<strong>SIGPWR</strong> <strong>29</strong>,30,19 <strong>A</strong> 电源故障(System V) 
+<strong>SIGINFO</strong> <strong>29</strong>,-,- <strong>A</strong> 与SIGPWR同义 
+<strong>SIGLOST</strong> -<strong><em>*,-,- </em>*A</strong> 文件锁丢失 
+<strong>SIGWINCH</strong> <strong>28</strong>,28,20 <strong>B</strong> 窗口大小改变(4.3 BSD, Sun) 
+<strong>SIGUNUSED</strong> -,31,- <strong>A</strong> 未使用的信号(will be SIGSYS) </p>
+</blockquote>
+<p>（在这里，- 表示信号没有实现；有三个值给出的含义为，第一个值通常在Alpha和Sparc上有效，中间的值对应i386和ppc以及sh，最后一个值对应mips。信号29在Alpha上为SIGINFO / SIGPWR ，在Sparc上为SIGLOST。） </p>
+<h3 id="_2">说明</h3>
+<ul>
+<li>处理动作一项中的字母含义如下 
+  A 缺省的动作是终止进程 
+  B 缺省的动作是忽略此信号 
+  C 缺省的动作是终止进程并进行内核映像转储（dump core） 
+  D 缺省的动作是停止进程 
+  E 信号不能被捕获 
+  F 信号不能被忽略 </li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

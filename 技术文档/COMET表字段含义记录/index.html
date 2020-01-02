@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>表字段含义说明 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u8868\u5b57\u6bb5\u542b\u4e49\u8bf4\u660e";
+    var mkdocs_page_input_path = "\u6280\u672f\u6587\u6863/COMET\u8868\u5b57\u6bb5\u542b\u4e49\u8bb0\u5f55.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../workspace/极光缩写/">工作文档</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>表字段含义说明</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">表字段含义说明</h1>
+<h2 id="tbl_slot">TBL_SLOT表</h2>
+<h3 id="burnstate">burnstate</h3>
+<ul>
+<li>DISC_EMPTY = 0  <strong>空盘</strong></li>
+<li>DISC_INCOMPLETE = 1    </li>
+<li>DISC_FINALIZED = 2    <strong>用于极光MHL状态，刻录完成（包括失败）</strong></li>
+<li>DISC_OTHERS = 3  </li>
+<li>DISC_SETVOLUE = 4  <strong>设置光盘volue信息</strong></li>
+<li>DISC_NEEDVERIFY = 5  <strong>待校验</strong></li>
+<li>DISC_READY = 6  <strong>刻录完成</strong></li>
+<li>DISC_FAILED = 7    <strong>刻录失败</strong></li>
+<li>
+<p>DISC_TOTAL = 8   </p>
+</li>
+<li>
+<p>现在状态2用于MHL，4，5，6，7用于ZL系列</p>
+</li>
+</ul>
+<h2 id="tbl_lvm">TBL_LVM</h2>
+<h3 id="state">state</h3>
+<ul>
+<li>0  LVM_STATE_ASSIGNING  # 正在向MW_Devmanager申请slot</li>
+<li>1  LVM_STATE_IDEL   #   向MW_Devmanager申请slot成功，状态空闲可用</li>
+<li>2  LVM_STATE_WRITING_FILE    # slot分配了给一个bucket，文件正在写入</li>
+<li>3  LVM_STATE_FULL         #slot 满了</li>
+<li>4  LVM_STATE_FINALIZING  #     udf slot 封盘（就是做MD文件）</li>
+<li>5  LVM_STATE_FINALIZED  #    udf slot 封盘完成</li>
+<li>6  LVM_STATE_MAKING_MD  #    未用</li>
+<li>7  LVM_STATE_MAKED_MD  #    未用</li>
+<li>8  LVM_STATE_BURNING    # 刻录，流程是：打开slot(移盘)-&gt;刻录-&gt;校验</li>
+<li>9  LVM_STATE_BURNT    # 上述刻录流程完成</li>
+<li>10 LVM_STATE_VERIFING  # 校验文件</li>
+<li>11 LVM_STATE_VERIFIED  # 未用</li>
+<li>12 LVM_STATE_COMPLETE   # 刻录完成后，将会进行其他操作，例如弹出盘，通知其他模块生成存根，若这些都完成，则完成</li>
+<li>13 LVM_STATE_ERROR    #</li>
+<li>14 LVM_STATE_FINALIZE_ERR    #udf slot 封盘错误</li>
+<li>15 LVM_STATE_BURN_ERR  # 刻录失败，通用刻录错误，可能是移盘失败，可能是没可用光驱，会重试</li>
+<li>16 LVM_STATE_MEDIUM_ERR  # 刻录失败，并且是光盘刻录过程中失败，将会换盘重刻</li>
+<li>17 LVM_STATE_REDO  # 各种数据损坏丢失时，lvm 重做</li>
+<li>18 LVM_STATE_REDO_SUCC  # lvm 重做成功</li>
+<li>19         # 最终成功</li>
+<li>20      # 刻录失败，需人为重试</li>
+<li>21         # 刻录完成，未校验。</li>
+<li>22 LVM_STATE_FINALIZE_FAIL     # 封盘失败</li>
+<li>23 LVM_STATE_OPENING_SLOT     # 正在打开slot</li>
+<li>24 LVM_STATE_AWAIT_BURN         # 等待刻录</li>
+<li>25 LVM_STATE_REPLACING               # 换盘中</li>
+</ul>
+<h2 id="odd">odd</h2>
+<h3 id="phystate">phystate</h3>
+<p>HAL_DRV_ODD_UNKNOW_STATE = 0;    </p>
+<p>HAL_DRV_ODD_EMPTY,                    空光驱</p>
+<p>HAL_DRV_EJECT,                                  hold a slot, but ejected</p>
+<p>HAL_DRV_INJECT,                               hold a slot, injected       </p>
+<p>HAL_DRV_UMOUNT,                             hold a slot, but not mount</p>
+<p>HAL_DRV_MOUNT                               mounted</p>
+<h3 id="devstate">devstate</h3>
+<h3 id="runstate">runstate</h3>
+<p>ODD_IDLE,</p>
+<p>ODD_RESERVED,</p>
+<p>ODD_ERROR</p>
+<h2 id="state_1">state</h2>
+<p>slot_nearline_idle = 0;</p>
+<p>slot_nearline_mounted = 1;</p>
+<p>slot_offline</p>
+<p>slot_outlib</p>
+<p>slot_state_not</p>
+<h2 id="plc-errcode">PLC ErrCode</h2>
+<p>1    未完成</p>
+<p>2    内部错误</p>
+<p>3    不支持的操作</p>
+<p>4    需要初始化</p>
+<p>5    初始化失败</p>
+<p>6    校验</p>
+<p>7    send错误</p>
+<p>8    设备故障，初始化失败</p>
+<p>9    已关机poweroff</p>
+<p>10    设备忙</p>
+<p>11    设备忙</p>
+<p>12    超时</p>
+<p>13    无碟片</p>
+<p>14    光驱未弹出</p>
+<p>15    光驱未收回</p>
+<p>16    盘匣弹出失败</p>
+<p>17    多盘匣弹出</p>
+<p>18    机械臂故障</p>
+<p>19    光盘库roll</p>
+<p>20    碟片丢失</p>
+<p>21    卡碟(disc in arm)</p>
+<p>22    </p>
+<p>31     碟片数据不对</p>
+<p>32    无效addr</p>
+<p>33    no such entry</p>
+<p>34    cart not ready</p>
+<p>39   SRCEMPTY</p>
+<p>40   DSTFULL</p>
+<p>52 LOSDISP</p>
+<p>50 非法参数</p>
+<p>in_queue</p>
+<p>write_fail</p>
+<p>1、进度：</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

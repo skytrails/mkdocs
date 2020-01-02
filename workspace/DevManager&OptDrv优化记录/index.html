@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>devManager&OptDrv优化方案 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "devManager&OptDrv\u4f18\u5316\u65b9\u6848";
+    var mkdocs_page_input_path = "workspace/DevManager&OptDrv\u4f18\u5316\u8bb0\u5f55.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../极光缩写/">工作文档</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>devManager&OptDrv优化方案</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="devmanageroptdrv">devManager&amp;OptDrv优化方案</h1>
+<div class="toc">
+<ul>
+<li><a href="#devmanageroptdrv">devManager&amp;OptDrv优化方案</a><ul>
+<li><a href="#_1">说明</a></li>
+<li><a href="#-recovery">- 针对recovery 恢复进行优化</a></li>
+<li><a href="#_2">光盘库与控制服务器日志查询</a><ul>
+<li><a href="#_3">数据库模型</a><ul>
+<li><a href="#systemevents">systemevents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="_1">说明</h2>
+<h2 id="-recovery">- 针对recovery 恢复进行优化</h2>
+<table>
+<thead>
+<tr>
+<th>3-2      NSA设置/API（NFS/CIFS）</th>
+<th></th>
+<th>2019年7月15日</th>
+<th>2019年7月19日</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3-3      文件接口（用户权限）</td>
+<td>#3-3</td>
+<td>2019年6月20日</td>
+<td>2019年7月12日</td>
+<td>17</td>
+</tr>
+<tr>
+<td>4-3      刻录作业查询/API</td>
+<td></td>
+<td>2019年7月22日</td>
+<td>2019年7月26日</td>
+<td>5</td>
+</tr>
+<tr>
+<td>4-4        光盘库与控制服务器的日志查询/API</td>
+<td></td>
+<td>2019年5月27日</td>
+<td>2019年6月19日</td>
+<td>17</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">光盘库与控制服务器日志查询</h2>
+<h3 id="_3">数据库模型</h3>
+<h4 id="systemevents">systemevents</h4>
+<ul>
+<li>说明</li>
+</ul>
+<blockquote>
+<ol>
+<li>收集系统日志</li>
+</ol>
+</blockquote>
+<ul>
+<li>结构</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>customerid</td>
+<td>bigint</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>receivedat</td>
+<td>timestamp without time zone</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>devicereportedtime</td>
+<td>timestamp without time zone</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>facility</td>
+<td>smallint</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>priority</td>
+<td>smallint</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fromhost</td>
+<td>character varying(60)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>text</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ntseverity</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>importance</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>eventsource</td>
+<td>character varying(60)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>eventuser</td>
+<td>character varying(60)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>eventcategory</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>eventid</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>eventbinarydata</td>
+<td>text</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>maxavailable</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>currusage</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>minusage</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>maxusage</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>infounitid</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>syslogtag</td>
+<td>character varying(60)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>eventlogtype</td>
+<td>character varying(60)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>genericfilename</td>
+<td>character varying(60)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>systemid</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

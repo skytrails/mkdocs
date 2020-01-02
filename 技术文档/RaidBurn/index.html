@@ -7,16 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="shortcut icon" href="/img/favicon.ico">
-  <title>My Docs</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>RaidBurn - My Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
-  <script src="/js/jquery-2.1.1.min.js" defer></script>
-  <script src="/js/modernizr-2.8.3.min.js" defer></script>
+  <script>
+    // Current page data
+    var mkdocs_page_name = "RaidBurn";
+    var mkdocs_page_input_path = "\u6280\u672f\u6587\u6863/RaidBurn.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -29,9 +36,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="/." class="icon icon-home"> My Docs</a>
+        <a href="../.." class="icon icon-home"> My Docs</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="//search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -43,17 +50,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="/.">Home</a>
+    <a class="" href="../..">Home</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/about/">About</a>
+    <a class="" href="../../about/">About</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/workspace/极光缩写/">工作文档</a>
+    <a class="" href="../../workspace/极光缩写/">工作文档</a>
 	    </li>
           
         </ul>
@@ -66,7 +73,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="/.">My Docs</a>
+        <a href="../..">My Docs</a>
       </nav>
 
       
@@ -74,9 +81,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="/.">Docs</a> &raquo;</li>
+    <li><a href="../..">Docs</a> &raquo;</li>
     
+      
     
+    <li>RaidBurn</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -86,12 +95,80 @@
           <div role="main">
             <div class="section">
               
-
-  <h1 id="404-page-not-found">404</h1>
-
-  <p><strong>Page not found</strong></p>
-
-
+                <h3 id="_1"></h3>
+<h1 id="raidburn">RaidBurn</h1>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RaidId</td>
+<td>VARCHAR(40)</td>
+<td>标识Raid组</td>
+<td></td>
+</tr>
+<tr>
+<td>LibraryId</td>
+<td>VARCHAR(40)</td>
+<td>库ID</td>
+<td></td>
+</tr>
+<tr>
+<td>RaidLevel</td>
+<td>VARCHAR(10)</td>
+<td>分数值</td>
+<td>k/m</td>
+</tr>
+<tr>
+<td>DataVolumeList</td>
+<td>VARCHAR(1024)</td>
+<td>RAID数据盘</td>
+<td>以';'分隔</td>
+</tr>
+<tr>
+<td>ParityDiscList</td>
+<td>VARCHAR(1024)</td>
+<td>RAID校验盘</td>
+<td>以';'分隔</td>
+</tr>
+<tr>
+<td>BrokenDiscList</td>
+<td>VARCHAR(1024)</td>
+<td>RAID错误盘</td>
+<td>以';'分隔</td>
+</tr>
+<tr>
+<td>CreateTime</td>
+<td>timestamp</td>
+<td>创建时间</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>ModifyTime</td>
+<td>timestamp</td>
+<td>修改时间</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>INT</td>
+<td>0 未做RAID计算 <br>1 已经做RAID<br>2 数据刻录中 <br>3 数据刻录完成<br>4 校验数据生成中<br>5 校验数据完成<br>6 校验盘刻录中<br>7 校验盘记录完成<br>8 完成</td>
+<td>103 刻录失败<br>104 生成校验失败<br>105 校验失败<br>106 失败<br>101 恢复中</td>
+</tr>
+</tbody>
+</table>
+<p>a1cli 恢复接口</p>
+<p>加个恢复状态</p>
+<p>判断是否为可恢复状态</p>
+<p>文件目录oid/raidid/volid</p>
+<p>11752-11763</p>
+              
             </div>
           </div>
           <footer>
@@ -121,9 +198,9 @@
       
     </span>
 </div>
-    <script>var base_url = '/';</script>
-    <script src="/js/theme.js" defer></script>
-      <script src="/search/main.js" defer></script>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>
