@@ -1,6 +1,8 @@
 site_name: My Docs
-#mkdocs.yml
-#docs/
-#    index.md
-#    workspace/
-#        极光缩写.md
+#site_name: MkLorum
+nav:
+    - Home: index.md
+    - About: about.md
+    - 工作文档: workspace/极光缩写.md
+
+theme: readthedocs
