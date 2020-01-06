@@ -1,8 +1,47 @@
-site_name: My Docs
+site_name: skytrails's 文档
 #site_name: MkLorum
+site_author: Flc
+site_description: 希言自然。
+repo_url: https://github.com/skytrails/mkdocs
+#site_url: https://flc.io
 nav:
-    - Home: index.md
-    - About: about.md
-    - 工作文档: workspace/极光缩写.md
+    - Home:
+        - Home: index.md
+        - About: about.md
+    - 工作文档:
+        - 系统安装 : workspace/系统安装.md
+    - 技术文档:
+        - Unix系统:
+            - 仓库: 技术文档/Yum仓库制作.md
 
-theme: readthedocs
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - toc:
+      permalink: true
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+
+theme:
+      name: 'material'
+      palette:
+          primary: 'black'
+          accent: 'white'
