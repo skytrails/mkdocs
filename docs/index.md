@@ -1,6 +1,6 @@
-# Welcome to skytrails's 文档
+# Welcome to skytrails's Doc
 
-## Commands
+## 
 
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.

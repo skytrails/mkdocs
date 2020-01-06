@@ -13,6 +13,8 @@ nav:
     - 技术文档:
         - Unix系统:
             - 仓库: 技术文档/Yum仓库制作.md
+        - 软件破解:
+            - Idea: 技术文档/Mac下Idea 2019.2版本破解.md
 
 markdown_extensions:
   - admonition
