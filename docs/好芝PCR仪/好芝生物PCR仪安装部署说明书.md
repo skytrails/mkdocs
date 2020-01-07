@@ -22,23 +22,15 @@
 
   - 设置完成
 
-- 安装中文字体
+- 安装png图片转换工具
 
   ```bash
-  $ sudo apt-get install ibus-pinyin
+  $ sudo apt-get install unoconv
   ```
 
-- 扫码功能安装
+- 安装中文输入法
 
-  - NLS-FR40xx-3x用户手册32页
-
-  - 依次扫码【开启设置码】【设置为usb虚拟串口】【关闭设置码】
-
-  - 安装中文输入法
-
-  - 检查ttyACM0文件权限（要支持hg用户读权限)  / 或者直接设置为: 
-
-    ```bash
+  - ```bash
     $ sudo apt-get install ibus-pinyin
     ```
 

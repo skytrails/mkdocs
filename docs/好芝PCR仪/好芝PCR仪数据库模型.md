@@ -2,15 +2,15 @@
 
 ## 用户表(SYS_ACCOUNT)
 
-| 字段名称   | 数据类型   | 说明      | 备注     |
-| ---------- | ---------- | --------- | -------- |
-| USERNAME   | char(255)  | *not null | 用户名   |
-| PASSWD     | char(255)  | 不为空    |          |
-| USERTYPE   | INT        | 不为空    |          |
-| CREATETIME | DATETIME   | 不为空    | 创建时间 |
-| MODIFYTIME | DATETIME   |           | 修改时间 |
-| EXPTIME    | DATETIME   |           |          |
-| COMMENT    | CHAR(1024) | 可为空    | 说明     |
+| 字段名称   | 数据类型   | 值       | 备注     |
+| ---------- | ---------- | -------- | -------- |
+| USERNAME   | char(255)  | not null | 用户名   |
+| PASSWD     | char(255)  | 不为空   |          |
+| USERTYPE   | INT        | 不为空   |          |
+| CREATETIME | DATETIME   | 不为空   | 创建时间 |
+| MODIFYTIME | DATETIME   |          | 修改时间 |
+| EXPTIME    | DATETIME   |          |          |
+| COMMENT    | CHAR(1024) | 可为空   | 说明     |
 
 
 
